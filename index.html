@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elkhaled Engineering</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+background:#070b18;
+color:white;
+font-family:'Inter','Cairo',sans-serif;
+overflow-x:hidden;
+}
+
+/* NAV */
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+background:rgba(10,15,31,0.6);
+backdrop-filter:blur(18px);
+border-bottom:1px solid #1f2a44;
+z-index:1000;
+}
+
+nav h1{
+color:#7aa8ff;
+font-size:18px;
+}
+
+nav button{
+background:#7aa8ff;
+border:none;
+padding:8px 12px;
+border-radius:8px;
+cursor:pointer;
+}
+
+/* HERO */
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+background:
+linear-gradient(135deg,rgba(122,168,255,0.3),rgba(138,43,226,0.3)),
+url("https://images.unsplash.com/photo-1555066931-4365d14bab8c") center/cover;
+position:relative;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.6);
+}
+
+.hero *{
+position:relative;
+z-index:2;
+}
+
+.hero h2{
+font-size:52px;
+color:#7aa8ff;
+font-weight:800;
+}
+
+.hero p{
+max-width:720px;
+margin-top:15px;
+color:#cbd5e1;
+font-size:18px;
+line-height:1.6;
+}
+
+.btn{
+margin-top:25px;
+padding:12px 24px;
+border:none;
+border-radius:12px;
+background:linear-gradient(135deg,#7aa8ff,#8b5cf6);
+color:white;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.05);
+}
+
+/* SECTIONS */
+section{
+padding:100px 20px;
+text-align:center;
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+section.show{
+opacity:1;
+transform:translateY(0);
+}
+
+h3{
+font-size:34px;
+margin-bottom:45px;
+color:#7aa8ff;
+}
+
+/* SERVICES */
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:22px;
+}
+
+.service{
+position:relative;
+height:230px;
+border-radius:18px;
+overflow:hidden;
+cursor:pointer;
+transition:0.4s;
+}
+
+.service img{
+width:100%;
+height:100%;
+object-fit:cover;
+filter:brightness(0.45);
+transition:0.4s;
+}
+
+.service:hover img{
+transform:scale(1.1);
+filter:brightness(0.6);
+}
+
+.service h4{
+position:absolute;
+bottom:18px;
+left:18px;
+font-size:20px;
+font-weight:800;
+padding:10px 12px;
+border-left:3px solid #7aa8ff;
+background:rgba(0,0,0,0.4);
+border-radius:10px;
+}
+
+/* PORTFOLIO */
+.portfolio{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.project{
+background:#111a33;
+border-radius:16px;
+overflow:hidden;
+}
+
+.project img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+.project p{
+padding:12px;
+color:#cbd5e1;
+font-weight:600;
+}
+
+/* STATS */
+.stats{
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+}
+
+.stat{
+background:#111a33;
+padding:20px;
+border-radius:12px;
+border:1px solid #1f2a44;
+}
+
+/* CONTACT */
+input,textarea{
+width:80%;
+padding:12px;
+margin:10px 0;
+border-radius:10px;
+border:none;
+background:#0e1530;
+color:white;
+border:1px solid #1f2a44;
+}
+
+/* WHATSAPP */
+.whatsapp{
+position:fixed;
+bottom:20px;
+left:20px;
+background:#25D366;
+padding:12px 15px;
+border-radius:50px;
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+
+/* ANIMATION */
+section{
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+section.show{
+opacity:1;
+transform:translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+<h1>Elkhaled Engineering</h1>
+<button onclick="toggleLang()">AR / EN</button>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+<h2 id="title">نحوّل الأفكار إلى تجارب رقمية عالمية</h2>
+<p id="desc">
+نحن وكالة متخصصة في تصميم وتطوير المواقع، الهوية البصرية، وصناعة البراندات والتجارب الرقمية الحديثة.
+</p>
+<button class="btn" onclick="document.getElementById('contact').scrollIntoView()">ابدأ مشروعك</button>
+</div>
+
+<!-- SERVICES -->
+<section>
+<h3 id="sTitle">خدماتنا</h3>
+
+<div class="services">
+
+<div class="service">
+<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085">
+<h4 id="s1">Web Design</h4>
+</div>
+
+<div class="service">
+<img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c">
+<h4 id="s2">Web Development</h4>
+</div>
+
+<div class="service">
+<img src="https://images.unsplash.com/photo-1545235617-9465d2a55698">
+<h4 id="s3">Logo Design</h4>
+</div>
+
+<div class="service">
+<img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d">
+<h4 id="s4">Social Media Design</h4>
+</div>
+
+</div>
+</section>
+
+<!-- PORTFOLIO -->
+<section>
+<h3 id="pTitle">أعمالنا</h3>
+
+<div class="portfolio">
+<div class="project"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71"><p>Dashboard System</p></div>
+<div class="project"><img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"><p>Corporate Website</p></div>
+<div class="project"><img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c"><p>App UI</p></div>
+<div class="project"><img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d"><p>Marketing Design</p></div>
+</div>
+</section>
+
+<!-- STATS -->
+<section>
+<h3 id="statTitle">إحصائياتنا</h3>
+
+<div class="stats">
+<div class="stat">+150 Project</div>
+<div class="stat">+90 Clients</div>
+<div class="stat">+8 Years</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h3 id="cTitle">تواصل معنا</h3>
+
+<input placeholder="الاسم">
+<br>
+<input placeholder="الإيميل">
+<br>
+<textarea placeholder="تفاصيل المشروع"></textarea>
+<br>
+<button class="btn">Send</button>
+</section>
+
+<footer style="text-align:center;padding:20px;border-top:1px solid #1f2a44;">
+© 2026 Elkhaled Engineering
+</footer>
+
+<a class="whatsapp" href="https://wa.me/201507201729" target="_blank">WhatsApp</a>
+
+<script>
+
+/* scroll */
+const sections=document.querySelectorAll("section");
+
+window.addEventListener("scroll",()=>{
+sections.forEach(s=>{
+if(window.scrollY>s.offsetTop-400){
+s.classList.add("show");
+}
+});
+});
+
+/* bilingual toggle */
+let arabic=true;
+
+function toggleLang(){
+
+arabic=!arabic;
+
+if(arabic){
+
+document.documentElement.lang="ar";
+
+document.getElementById("title").innerText="نحوّل الأفكار إلى تجارب رقمية عالمية";
+document.getElementById("desc").innerText="نحن وكالة متخصصة في تصميم وتطوير المواقع، الهوية البصرية، وصناعة البراندات والتجارب الرقمية الحديثة.";
+document.getElementById("sTitle").innerText="خدماتنا";
+document.getElementById("pTitle").innerText="أعمالنا";
+document.getElementById("statTitle").innerText="إحصائياتنا";
+document.getElementById("cTitle").innerText="تواصل معنا";
+
+document.getElementById("s1").innerText="Web Design";
+document.getElementById("s2").innerText="Web Development";
+document.getElementById("s3").innerText="Logo Design";
+document.getElementById("s4").innerText="Social Media Design";
+
+}else{
+
+document.documentElement.lang="en";
+
+document.getElementById("title").innerText="We turn ideas into global digital experiences";
+document.getElementById("desc").innerText="We are a creative agency specializing in web development, branding, and modern digital experiences.";
+document.getElementById("sTitle").innerText="Our Services";
+document.getElementById("pTitle").innerText="Our Work";
+document.getElementById("statTitle").innerText="Statistics";
+document.getElementById("cTitle").innerText="Contact Us";
+
+document.getElementById("s1").innerText="Web Design";
+document.getElementById("s2").innerText="Web Development";
+document.getElementById("s3").innerText="Logo Design";
+document.getElementById("s4").innerText="Social Media Design";
+}
+
+}
+</script>
+
+</body>
+</html>
